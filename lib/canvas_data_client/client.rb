@@ -24,6 +24,12 @@ module CanvasDataClient
     end
     alias_method :latest, :latest_files
 
+    def sync_files
+      json_request "#{domain}/api/account/#{account}/file/sync"
+    end
+    alias_method :sync, :sync_files
+
+
     def dumps
       paginated_request "#{domain}/api/account/#{account}/dump?after=%s"
     end
